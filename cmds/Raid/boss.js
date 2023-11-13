@@ -15,7 +15,7 @@ module.exports = {
             .setRequired(true)
             .addChoices(
                 {name: 'current', value: 'current'},
-                {name: 'upcomming', value: 'upcoming'}
+                {name: 'upcoming', value: 'upcoming'}
             )
     ),
     

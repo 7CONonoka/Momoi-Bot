@@ -1,15 +1,14 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 const jsondb = require('simple-json-db');
-const {SlashCommandBuilder} = require('discord.js')
+const { PingWhenBanner } = require('../modules/PingWhen.Banner');
+const { client } = require('../src');
+const { CHANNEL } = require('./../.config/config.json')
 
 const fs = require('node:fs')
 
 let db = new jsondb('./.config/Game_Init_Config/BannerConfig/bannerLink.json');
-let limts = require('./limits.json');
-const { PingWhenBanner } = require('../modules/PingWhen.Banner');
-const { client } = require('../src');
-const { CHANNEL } = require('./../.config/config.json')
+let limts = require('./../.config/DatabaseConfig/limits.json');
 let oldlimts = limts.current
 let path = './.config/DatabaseConfig/limits.json'
 let tmp;
@@ -49,13 +48,16 @@ function ReplaceWords(words) {
     return words
 }
 
-function DoingStuff(charName, charImgs) {
-    client.channels.cache.get(CHANNEL).send(`Sensei! new students are coming!`)
+function DoingStuff(charName, charImgs, Time) {
+    const channel = client.channels.cache.get(CHANNEL)
+    console.log(`New Changes had been caught! Send the notification to #${channel.name}`)
+    channel.send(`Sensei! new students are coming!`)
     for(let i = 0; i < charImgs.length; ++i) {
         let tmpIndex = i + oldlimts + 1;
         let curCharName = charName[tmpIndex];
         let curCharBanner = charImgs[i];
-        PingWhenBanner(curCharName, curCharBanner)
+        let curCharTime = Time[tmpIndex];
+        PingWhenBanner(curCharName, curCharBanner, curCharTime)
     }
 }
 
@@ -63,7 +65,7 @@ function BannerCrawling() {
     axios.get(`https://bluearchive.wiki/wiki/Banner_List_(Global)`).then(async c => {
     const $ = cheerio.load(c.data);
 
-    const imgs = [], charName = [];
+    const imgs = [], charName = [], rawDate = [], convertDate = [];
 
     //Get Images
     $("td.image").each((i, el) => {
@@ -75,7 +77,7 @@ function BannerCrawling() {
         }
     })
 
-    //Get student's name
+    // //Get student's name
     $("td").each((i, el) => {
         let charN = $(el).find("a").attr("title");
 
@@ -84,6 +86,18 @@ function BannerCrawling() {
         if(charN) charName.push(charN);
     })
 
+    //Get date
+    $("td").each((i, el) => {
+        $(el).find("i").remove("i");
+        $(el).find("a").remove("a")
+
+        if($(el).text() != '') rawDate.push($(el).text())
+    })
+
+    rawDate.forEach(el => {
+        let format = new Date(el.split(" ")[0])
+        convertDate.push(format.getTime())
+    })
     //Auto-Ping
     if(limts.current < tmp) {
         //update the database
@@ -99,7 +113,7 @@ function BannerCrawling() {
             if(err) throw err;
         })
 
-        DoingStuff(charName, imgs)
+        DoingStuff(charName, imgs, convertDate)
         return;
     }
     console.log("No change has been caught, continue checking after 10 minutes.")

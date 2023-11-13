@@ -3,14 +3,16 @@ const { client } = require("../src");
 const { CHANNEL } = require('./../.config/config.json')
 const fs = require("node:fs")
 const {Arona} = require('./../.config/Game_Init_Config/arona.json')
+const moment = require('moment')
 
-function PingWhenBanner(charName, charBannerURL) {
+function PingWhenBanner(charName, charBannerURL, Time) {
     const schoolData = fs.readFileSync('./init/Students/school.json')
     const rawSchoolData = JSON.parse(schoolData)
     const studentLogo = fs.readFileSync('./.config/Game_Init_Config/BannerConfig/logo.json')
     const rawLogo = JSON.parse(studentLogo)
     const schoolColor = fs.readFileSync('./.config/Game_Init_Config/BannerConfig/color.json')
     const rawColor = JSON.parse(schoolColor)
+    const startIn = moment(Time).format("DD/MM/YYYY")
     
     const embed = new EmbedBuilder()
     .setAuthor({
@@ -24,6 +26,9 @@ function PingWhenBanner(charName, charBannerURL) {
         },
         {
             name:"From:", value: rawSchoolData[charName], inline: true
+        },
+        {
+            name: "Start At:", value: startIn, inline:true
         }
     )
     .setTimestamp()
