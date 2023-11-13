@@ -1,8 +1,10 @@
 node_modules
 
-init/images
+package-lock.json
+
 init/L2D
+init/images
 
-backup
+.config/*.json
 
-.config/config.json
+cmds/Character

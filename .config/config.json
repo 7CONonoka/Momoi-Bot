@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-    "TOKEN": "Your Token",
-=======
-    "TOKEN": "MTE3MTkwOTg0NTc1MDkxNTE3Mg.G7T9NP.6DJZuWGKbxbFqwrCIjVGcZfkJWwcKXFBKYUGUk",
->>>>>>> 4437f83 (Update)
+    "TOKEN": "MTE3MTkwOTg0NTc1MDkxNTE3Mg.GkxrEa.2s60bU0nmFHydyFRfRH9XNEU2N8XrboC6ynOII",
     "API": "https://api.ennead.cc/buruaka",
-    "guildId": "Your Guild ID",
-    "clientId": "Client ID",
-    "CHANNEL": "Channel ID"
+    "clientId": "1171909845750915172",
+    "CHANNEL": "1170015182236422194"
 }
