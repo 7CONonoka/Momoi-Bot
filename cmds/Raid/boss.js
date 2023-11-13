@@ -1,9 +1,11 @@
 const {SlashCommandBuilder, EmbedBuilder} = require('discord.js')
-const {API, CHANNEL} = require('../../.config/config.json')
 const axios = require('axios')
 const fs = require('node:fs')
 const moment = require('moment')
 const {Arona} = require('../../.config/Game_Init_Config/arona.json')
+const {config} = require('dotenv')
+
+config();
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -26,7 +28,7 @@ module.exports = {
         const rawColor = JSON.parse(upColor)        
 
         if(interaction.options.getString('type') == 'current') {
-            axios.get(API + '/raid').then(c => {
+            axios.get(process.env.API + '/raid').then(c => {
                 const cur = c.data.current[0];
                 
                 if(!cur) {
@@ -64,7 +66,7 @@ module.exports = {
             return;
         }
 
-        axios.get(API + '/raid').then(c => {
+        axios.get(process.env.API + '/raid').then(c => {
             const Upc = c.data.upcoming[0];
             
             if(!Upc) {

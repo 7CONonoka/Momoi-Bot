@@ -1,10 +1,12 @@
 const axios = require('axios')
-const {API} = require('../.config/config.json')
+const {config} = require('dotenv')
 const fs = require('node:fs')
 const { pingWhenANewRaidBossApperance } = require('../modules/PingWhen.Boss')
 
+config();
+
 const RaidUpcomming = () => {
-    axios.get(API + `/raid`).then((c) => {
+    axios.get(process.env.API + `/raid`).then((c) => {
         const currentRaid = c.data.current[0];
         const prevId = currentRaid.seasonId;
         const upComming = c.data.upcoming[0];
@@ -22,7 +24,6 @@ const RaidUpcomming = () => {
         }
     })
 }
-
 setInterval(() => {
     RaidUpcomming()
 }, 600000)

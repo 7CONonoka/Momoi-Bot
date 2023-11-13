@@ -1,8 +1,10 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
-const {API} = require('../../.config/config.json')
+const {config} = require('dotenv')
 const axios = require('axios')
 const fs = require('node:fs')
 const moment = require('moment/moment')
+
+config();
 
 module.exports = {
     data: new SlashCommandBuilder().setName('banner').setDescription('Return current banner!'),
@@ -20,7 +22,7 @@ module.exports = {
         const BannerURL = fs.readFileSync('./.config/Game_Init_Config/BannerConfig/bannerLink.json');
         const rawBannerURL = JSON.parse(BannerURL);
 
-        axios.get(API + `/banner`).then(async(c) => {
+        axios.get(process.env.API + `/banner`).then(async(c) => {
             const el = c.data.current;
             
             for(const char of el) {

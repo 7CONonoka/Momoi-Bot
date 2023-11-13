@@ -8,3 +8,5 @@ init/images
 .config/*.json
 
 cmds/Character
+
+.env

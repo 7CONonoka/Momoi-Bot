@@ -1,8 +1,9 @@
 const {Client, Events, GatewayIntentBits, SlashCommandBuilder, Collection, EmbedBuilder, AttachmentBuilder } = require('discord.js');
-const { TOKEN, API, CHANNEL } = require("../.config/config.json");
+const { CHANNEL } = require("../.config/config.json");
 const fs = require('node:fs');
 const path = require('node:path');
 const moment = require('moment')
+const {config} = require('dotenv')
 
 //API
 const axios = require('axios')
@@ -56,8 +57,10 @@ for(const file of eventFiles) {
 
 module.exports = {client}
 
-// Run crawler
-require('../Database/Banner')
-require('../Database/RaidUpcoming')
+config();
 
-client.login(TOKEN);
+// Run crawler
+require('../Database/RaidUpcoming')
+require('../Database/Banner')
+
+client.login(process.env.TOKEN);

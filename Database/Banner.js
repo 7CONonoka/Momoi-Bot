@@ -2,13 +2,13 @@ const cheerio = require('cheerio');
 const axios = require('axios');
 const jsondb = require('simple-json-db');
 const { PingWhenBanner } = require('../modules/PingWhen.Banner');
-const { client } = require('../src');
 const { CHANNEL } = require('./../.config/config.json')
 
 const fs = require('node:fs')
 
 let db = new jsondb('./.config/Game_Init_Config/BannerConfig/bannerLink.json');
 let limts = require('./../.config/DatabaseConfig/limits.json');
+const { client } = require('../src');
 let oldlimts = limts.current
 let path = './.config/DatabaseConfig/limits.json'
 let tmp;
@@ -50,8 +50,7 @@ function ReplaceWords(words) {
 
 function DoingStuff(charName, charImgs, Time) {
     const channel = client.channels.cache.get(CHANNEL)
-    console.log(`New Changes had been caught! Send the notification to #${channel.name}`)
-    channel.send(`Sensei! new students are coming!`)
+    channel.send("Sensei! New students are coming!")
     for(let i = 0; i < charImgs.length; ++i) {
         let tmpIndex = i + oldlimts + 1;
         let curCharName = charName[tmpIndex];
