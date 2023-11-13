@@ -1,9 +1,9 @@
 const { client } = require("../src");
 
 function pingWhenANewRaidBossApperance(bossName, start, end) {
-    const upBanner = fs.readFileSync("./.config/raid.json");
+    const upBanner = fs.readFileSync("./.config/Game_Init_Config/RaidConfig/raid.json");
     const rawBanner = JSON.parse(upBanner);
-    const upColor = fs.readFileSync("./.config/raidColor.json");
+    const upColor = fs.readFileSync("./.config/Game_Init_Config/RaidConfig/raidColor.json");
     const rawColor = JSON.parse(upColor)    
 
     setTimeout(() => {

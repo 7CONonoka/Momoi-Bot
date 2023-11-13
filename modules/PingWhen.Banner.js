@@ -2,14 +2,14 @@ const { EmbedBuilder } = require('discord.js')
 const { client } = require("../src");
 const { CHANNEL } = require('./../.config/config.json')
 const fs = require("node:fs")
-const {Arona} = require('./../cmds/Raid/arona.json')
+const {Arona} = require('./../.config/Game_Init_Config/arona.json')
 
 function PingWhenBanner(charName, charBannerURL) {
     const schoolData = fs.readFileSync('./init/Students/school.json')
     const rawSchoolData = JSON.parse(schoolData)
-    const studentLogo = fs.readFileSync('./.config/logo.json')
+    const studentLogo = fs.readFileSync('./.config/Game_Init_Config/BannerConfig/logo.json')
     const rawLogo = JSON.parse(studentLogo)
-    const schoolColor = fs.readFileSync('./.config/color.json')
+    const schoolColor = fs.readFileSync('./.config/Game_Init_Config/BannerConfig/color.json')
     const rawColor = JSON.parse(schoolColor)
     
     const embed = new EmbedBuilder()

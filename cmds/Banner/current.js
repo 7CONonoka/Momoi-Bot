@@ -13,11 +13,11 @@ module.exports = {
         const rawStudentsData = JSON.parse(studentsData);
         const schoolData = fs.readFileSync('./init/Students/school.json');
         const rawSchoolData = JSON.parse(schoolData);
-        const colorData = fs.readFileSync('./.config/color.json');
+        const colorData = fs.readFileSync('./.config/Game_Init_Config/BannerConfig/color.json');
         const rawColorData = JSON.parse(colorData);
-        const StudentLogo = fs.readFileSync('./.config/logo.json');
+        const StudentLogo = fs.readFileSync('./.config/Game_Init_Config/BannerConfig/logo.json');
         const rawStudentLogo = JSON.parse(StudentLogo);
-        const BannerURL = fs.readFileSync('./.config/bannerLink.json');
+        const BannerURL = fs.readFileSync('./.config/Game_Init_Config/BannerConfig/bannerLink.json');
         const rawBannerURL = JSON.parse(BannerURL);
 
         axios.get(API + `/banner`).then(async(c) => {
@@ -27,7 +27,7 @@ module.exports = {
                 if(rawStudentsData[char.rateups[0]]) {
                     const school = rawSchoolData[char.rateups[0]];
                     const logo = rawStudentLogo[char.rateups[0]];
-                    const {Arona} = require('../Raid/arona.json')
+                    const {Arona} = require('./../../.config/Game_Init_Config/arona.json')
                     
                     const Color = rawColorData[school];
                     const startAt = new Date(char.startAt - (10 * 60 * 60 * 1000));

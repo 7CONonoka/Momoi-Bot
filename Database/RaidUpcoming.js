@@ -1,12 +1,12 @@
 const axios = require('axios')
-const {API, CHANNEL} = require('../.config/config.json')
+const {API} = require('../.config/config.json')
 const fs = require('node:fs')
 const { pingWhenANewRaidBossApperance } = require('../modules/PingWhen.Boss')
 
 const RaidUpcomming = () => {
     axios.get(API + `/raid`).then((c) => {
         const currentRaid = c.data.current[0];
-        const prevId = currentRaid.id;
+        const prevId = currentRaid.seasonId;
         const upComming = c.data.upcoming[0];
 
         if(!upComming) {

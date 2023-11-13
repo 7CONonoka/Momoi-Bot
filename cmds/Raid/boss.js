@@ -1,10 +1,9 @@
 const {SlashCommandBuilder, EmbedBuilder} = require('discord.js')
-const current = require('../Banner/current')
 const {API, CHANNEL} = require('../../.config/config.json')
 const axios = require('axios')
 const fs = require('node:fs')
 const moment = require('moment')
-const {Arona} = require('./arona.json')
+const {Arona} = require('../../.config/Game_Init_Config/arona.json')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -21,9 +20,9 @@ module.exports = {
     ),
     
     async execute(interaction) {
-        const upBanner = fs.readFileSync("./.config/raid.json");
+        const upBanner = fs.readFileSync("./.config/Game_Init_Config/RaidConfig/raid.json");
         const rawBanner = JSON.parse(upBanner);
-        const upColor = fs.readFileSync("./.config/raidColor.json");
+        const upColor = fs.readFileSync("./.config/Game_Init_Config/RaidConfig/raidColor.json");
         const rawColor = JSON.parse(upColor)        
 
         if(interaction.options.getString('type') == 'current') {

@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "TOKEN": "Your Token",
+=======
+    "TOKEN": "MTE3MTkwOTg0NTc1MDkxNTE3Mg.G7T9NP.6DJZuWGKbxbFqwrCIjVGcZfkJWwcKXFBKYUGUk",
+>>>>>>> 4437f83 (Update)
     "API": "https://api.ennead.cc/buruaka",
     "guildId": "Your Guild ID",
     "clientId": "Client ID",

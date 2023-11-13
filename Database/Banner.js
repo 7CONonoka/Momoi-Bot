@@ -5,13 +5,13 @@ const {SlashCommandBuilder} = require('discord.js')
 
 const fs = require('node:fs')
 
-let db = new jsondb('./.config/bannerLink.json');
+let db = new jsondb('./.config/Game_Init_Config/BannerConfig/bannerLink.json');
 let limts = require('./limits.json');
 const { PingWhenBanner } = require('../modules/PingWhen.Banner');
 const { client } = require('../src');
 const { CHANNEL } = require('./../.config/config.json')
 let oldlimts = limts.current
-let path = './Database/limits.json'
+let path = './.config/DatabaseConfig/limits.json'
 let tmp;
 
 //Replace specific words

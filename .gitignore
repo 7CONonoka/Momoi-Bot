@@ -2,3 +2,7 @@ node_modules
 
 init/images
 init/L2D
+
+backup
+
+.config/config.json
