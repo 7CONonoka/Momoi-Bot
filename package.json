@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.1",
+    "chalk": "4.1.2",
     "cheerio": "^1.0.0-rc.12",
     "discord.js": "^14.13.0",
     "discord.js.userbot": "^1.0.3",

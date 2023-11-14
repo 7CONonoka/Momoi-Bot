@@ -40,7 +40,7 @@ module.exports = {
                 interaction.reply(`${bossName}'s still assaulting Kivotos! ${interaction.user.displayName}-sensei please give us instructions!`)
 
                 const startT = new Date(cur.startAt)
-                const endT = new Date(cur.endT);
+                const endT = new Date(cur.endAt);
 
                 const formattedStart = moment(startT).format("DD/MM/YYYY");
                 const formattedEnd = moment(endT).format("DD/MM/YYYY")

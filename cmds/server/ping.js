@@ -6,7 +6,6 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Replies with Pong!'),
 	async execute(interaction) {
-
 		interaction.reply(`YATTAAA\n CLEAAHHH: ${Date.now() - interaction.createdTimestamp}ms`)
 	},
 };

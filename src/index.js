@@ -1,15 +1,7 @@
-const {Client, Events, GatewayIntentBits, SlashCommandBuilder, Collection, EmbedBuilder, AttachmentBuilder } = require('discord.js');
-const { CHANNEL } = require("../.config/config.json");
+const {Client, GatewayIntentBits, Collection } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
-const moment = require('moment')
 const {config} = require('dotenv')
-
-//API
-const axios = require('axios')
-
-//Database
-const JSONdb = require('simple-json-db')
 
 
 //create a new client instance
@@ -62,5 +54,6 @@ config();
 // Run crawler
 require('../Database/RaidUpcoming')
 require('../Database/Banner')
+require('../Database/NewRaidReleased')
 
 client.login(process.env.TOKEN);

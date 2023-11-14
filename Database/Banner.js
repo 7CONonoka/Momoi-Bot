@@ -3,6 +3,7 @@ const axios = require('axios');
 const jsondb = require('simple-json-db');
 const { PingWhenBanner } = require('../modules/PingWhen.Banner');
 const { CHANNEL } = require('./../.config/config.json')
+const chalk = require('chalk')
 
 const fs = require('node:fs')
 
@@ -50,6 +51,7 @@ function ReplaceWords(words) {
 
 function DoingStuff(charName, charImgs, Time) {
     const channel = client.channels.cache.get(CHANNEL)
+    console.log(`New ${chalk.blueBright('Students')} has apperance! Sensei please give me 1200 ${chalk.blue('pyroxense')}`)
     channel.send("Sensei! New students are coming!")
     for(let i = 0; i < charImgs.length; ++i) {
         let tmpIndex = i + oldlimts + 1;

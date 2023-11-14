@@ -1,8 +1,10 @@
 const {REST, Routes} = require('discord.js');
-const {clientId, TOKEN} = require('../.config/config.json');
+const {clientId} = require('../.config/config.json');
 const fs = require('node:fs');
 const path = require('node:path');
+const {config} = require('dotenv')
 
+config()
 const commands = [];
 
 const folderPaths = path.join(__dirname, '../cmds');
@@ -20,7 +22,7 @@ for(const folder of folderInside) {
         else console.log(`[WARNING] The command at ${filePath} are missing 'data' or 'execute' property.`);
     }
 }
-const rest = new REST().setToken(TOKEN);
+const rest = new REST().setToken(process.env.TOKEN);
 
 (async() => {
     try{

@@ -540,6 +540,14 @@ chalk@3.0.0, chalk@~3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chalk@4.1.2, chalk@^4.0.0:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
@@ -548,14 +556,6 @@ chalk@^2.4.2:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
-
-chalk@^4.0.0:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
-  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
 
 charm@~0.1.1:
   version "0.1.2"
@@ -787,7 +787,7 @@ discord-api-types@0.37.50:
 
 discord.js.userbot@^1.0.3:
   version "1.0.3"
-  resolved "https://registry.npmjs.org/discord.js.userbot/-/discord.js.userbot-1.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/discord.js.userbot/-/discord.js.userbot-1.0.3.tgz#ce86e0f23000f66a0628e90d4ca2d097324de1be"
   integrity sha512-zfwCNqg7iCaDMAwYG3Jbm6iiuIdZ6bolxnqy8ZHj5qp7bI9SKfynfqc3tgW/3wfpuG8r8NIRrxddcHLy21yIng==
 
 discord.js@^14.13.0:

@@ -10,3 +10,5 @@ init/images
 cmds/Character
 
 .env
+
+src/getAko.js
