@@ -2,7 +2,8 @@
 A Discord bot for Blue Archive game, using API from [torikushiii](https://github.com/torikushiii/BlueArchiveAPI). If you could, please support both of us ❤
 # Installing
 **Node.js 16 or higher is required**
-To install all libraby, you can use the following commands:
+
+To install all library, you can use the following commands:
 ```
 # NPM
 npm install
@@ -10,7 +11,7 @@ npm install
 # yarn
 yarn
 ```
-To use the bot, you need to create a .env file with following commands:
+To use the bot, you need to create a .env file with the following commands:
 ```
 # create .env file
 touch .env
@@ -20,12 +21,12 @@ touch .env
 TOKEN=YOUR_TOKEN_HERE
 API=https://api.ennead.cc/buruaka
 ```
-Add your Bot client ID and your Server Id in
+Add your Bot client ID and your Server ID in
 ``
 .config/config.json
 ``
 # Run the bot
-To run Momoi-bot you can use few ways:
+To run Momoi-bot you can use a few ways:
 ```
 # PM2
 yarn add -D pm2
@@ -41,4 +42,4 @@ nodemon ./src/index.js
 Node ./src/index.js
 ```
 ## Footer
-I hope you have a good times with my bot, feel free to contribute or contact with me if you needs something!
+I hope you have a good time with my bot, feel free to contribute or contact me if you need something!
